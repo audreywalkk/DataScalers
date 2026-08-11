@@ -1,3 +1,4 @@
+import { calculateRisk, RiskResult } from "../../lib/createPredictor";
 import React, { useState } from 'react';
 
 interface Question {
