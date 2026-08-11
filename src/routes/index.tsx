@@ -1,7 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
-import { ReadinessAuditSection } from '../components/ui/ReadinessAudit';
-
+import React, { useState } from "react";
+import { ReadinessAuditSection } from "../components/ui/ReadinessAudit";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -71,38 +70,38 @@ const TRACKS: Track[] = [
         example: "Generating static end-of-month campaign reports via CSV exports to measure basic Click-Through Rates (CTR) and total spend.",
         leap: {
           infrastructure: "Shift from disparate CSVs and siloed channel tools to a centralized Customer Data Platform (CDP) or data warehouse.",
-          culture: "Move teams away from vanity metrics and siloed data hoarding. Establish a single source of truth for marketing performance."
-        }
+          culture: "Move teams away from vanity metrics and siloed data hoarding. Establish a single source of truth for marketing performance.",
+        },
       },
       2: {
         example: "Analyzing funnel drop-off rates and reviewing A/B test results to understand exactly why a specific ad group underperformed last week.",
         leap: {
           infrastructure: "Implement scalable machine learning modeling environments to begin scoring customers and predicting behavior based on historical logs.",
-          culture: "Train marketers to interpret statistical significance and adopt a hypothesis-driven mindset rather than relying purely on intuition."
-        }
+          culture: "Train marketers to interpret statistical significance and adopt a hypothesis-driven mindset rather than relying purely on intuition.",
+        },
       },
       3: {
         example: "Utilizing ML models to predict customer churn probability and forecast Lifetime Value (LTV) before the next billing cycle.",
         leap: {
           infrastructure: "Deploy real-time data streaming pipelines (e.g., Kafka) and recommendation engines to serve dynamic content instantly.",
-          culture: "Build trust in algorithmic audience segmentation. Shift the mindset from \"gut-feel\" campaign targeting to trusting predictive outputs."
-        }
+          culture: "Build trust in algorithmic audience segmentation. Shift the mindset from \"gut-feel\" campaign targeting to trusting predictive outputs.",
+        },
       },
       4: {
         example: "Receiving automated, dynamic pricing recommendations and having the system suggest the optimal reallocation of ad spend across social platforms to maximize ROAS.",
         leap: {
           infrastructure: "Integrate LLMs, autonomous agent frameworks, and robust API endpoints that allow the system to push changes directly to ad networks.",
-          culture: "Overcome the fear of automation. Leaders must learn to manage system guardrails and constraints rather than micro-managing individual bids."
-        }
+          culture: "Overcome the fear of automation. Leaders must learn to manage system guardrails and constraints rather than micro-managing individual bids.",
+        },
       },
       5: {
         example: "Real-time autonomous AI agents independently allocating a million-dollar ad budget, tweaking creative copy, and launching net-new micro-campaigns on the fly based on conversion velocity.",
         leap: {
           infrastructure: "Implement robust continuous evaluation loops, automated compliance checks, and multi-agent coordination architectures.",
-          culture: "Transition human roles from operators to \"AI Managers.\" Focus on ethical alignment, brand safety governance, and overarching strategic goal-setting."
-        }
-      }
-    }
+          culture: "Transition human roles from operators to \"AI Managers.\" Focus on ethical alignment, brand safety governance, and overarching strategic goal-setting.",
+        },
+      },
+    },
   },
   {
     id: "finance",
@@ -118,38 +117,38 @@ const TRACKS: Track[] = [
         example: "Compiling quarterly backward-looking Profit & Loss (P&L) statements and tracking historical departmental expenses using massive Excel spreadsheets.",
         leap: {
           infrastructure: "Migrate financial data from localized spreadsheets into cloud-based ERPs and automated financial reporting dashboards.",
-          culture: "Shift the finance department's focus from manual data entry and reconciliation to data validation and initial analysis."
-        }
+          culture: "Shift the finance department's focus from manual data entry and reconciliation to data validation and initial analysis.",
+        },
       },
       2: {
         example: "Conducting variance analysis to identify the specific root causes of cost overruns in Q3, drilling down into vendor-specific billing anomalies.",
         leap: {
           infrastructure: "Adopt predictive forecasting tools and integrate external market data feeds (e.g., commodity prices, interest rates) into internal models.",
-          culture: "Evolve from a backward-looking reporting function to a forward-looking advisory role, actively warning departments of emerging trends."
-        }
+          culture: "Evolve from a backward-looking reporting function to a forward-looking advisory role, actively warning departments of emerging trends.",
+        },
       },
       3: {
         example: "Generating automated cash flow forecasts and running predictive macro-economic risk models to anticipate revenue shortfalls six months in advance.",
         leap: {
           infrastructure: "Implement prescriptive optimization solvers and rules engines that can calculate millions of financial scenarios simultaneously.",
-          culture: "Foster a proactive risk culture. Executives must learn to make strategic capital allocation decisions based on probabilistic forecasts."
-        }
+          culture: "Foster a proactive risk culture. Executives must learn to make strategic capital allocation decisions based on probabilistic forecasts.",
+        },
       },
       4: {
         example: "The system provides automated portfolio rebalancing recommendations and prescribes exact capital restructuring steps to minimize tax liabilities.",
         leap: {
           infrastructure: "Deploy secure, multi-agent execution systems with direct API access to trading platforms, banking portals, and treasury systems.",
-          culture: "Let go of manual trade/approval clicks for standard financial operations. Build deep trust in automated execution within strict financial parameters."
-        }
+          culture: "Let go of manual trade/approval clicks for standard financial operations. Build deep trust in automated execution within strict financial parameters.",
+        },
       },
       5: {
         example: "Self-correcting cognitive risk-hedging agents autonomously executing macro-strategies, dynamically moving capital, and restructuring debt in real-time to exploit brief market anomalies.",
         leap: {
           infrastructure: "Develop advanced systemic kill-switches, real-time audit trails, and explainable AI layers for regulatory compliance.",
-          culture: "Focus purely on macro-strategy formulation and regulatory relations. The human role shifts to setting the \"rules of engagement\" for the financial AI."
-        }
-      }
-    }
+          culture: "Focus purely on macro-strategy formulation and regulatory relations. The human role shifts to setting the \"rules of engagement\" for the financial AI.",
+        },
+      },
+    },
   },
   {
     id: "operations",
@@ -166,38 +165,38 @@ const TRACKS: Track[] = [
         example: "Conducting standard historical inventory counts, logging warehouse shifts, and reviewing weekly throughput reports on a static dashboard.",
         leap: {
           infrastructure: "Integrate IoT sensors, RFID tags, and edge computing devices to capture real-time operational state data continuously.",
-          culture: "Move warehouse and floor managers away from clipboard tracking to utilizing digital, real-time dashboards."
-        }
+          culture: "Move warehouse and floor managers away from clipboard tracking to utilizing digital, real-time dashboards.",
+        },
       },
       2: {
         example: "Performing root cause analysis to discover exactly why a specific manufacturing line produced a higher defect rate or why a delivery fleet was delayed last Tuesday.",
         leap: {
           infrastructure: "Implement predictive maintenance machine learning models and integrate external logistics data (e.g., traffic, weather APIs).",
-          culture: "Shift operational culture from \"reactive fixing\" to \"proactive tuning.\" Train teams to investigate warnings before actual failures occur."
-        }
+          culture: "Shift operational culture from \"reactive fixing\" to \"proactive tuning.\" Train teams to investigate warnings before actual failures occur.",
+        },
       },
       3: {
         example: "Forecasting seasonal supply chain demand down to the SKU level and predicting specific machine component failures hours before they happen.",
         leap: {
           infrastructure: "Deploy complex digital twins of your supply chain and mathematical optimization solvers (e.g., linear programming models).",
-          culture: "Learn to execute based on model recommendations. Build operational workflows where AI insights automatically trigger human review tickets."
-        }
+          culture: "Learn to execute based on model recommendations. Build operational workflows where AI insights automatically trigger human review tickets.",
+        },
       },
       4: {
         example: "The platform generates algorithmic routing recommendations for delivery fleets and automatically suggests re-ordering quantities from suppliers to avoid stockouts.",
         leap: {
           infrastructure: "Build agentic control systems and establish secure B2B API integrations that allow your AI to interact directly with supplier ordering systems.",
-          culture: "Empower the system to make operational decisions. Overcome the friction of allowing an algorithm to spend company money on raw materials."
-        }
+          culture: "Empower the system to make operational decisions. Overcome the friction of allowing an algorithm to spend company money on raw materials.",
+        },
       },
       5: {
         example: "Autonomous agentic supply chains that auto-reroute international shipping logistics, negotiate spot-freight rates, and adjust manufacturing schedules instantly based on global weather anomalies.",
         leap: {
           infrastructure: "Establish global agentic oversight meshes that monitor multiple AI sub-agents for system resilience and catastrophic failure prevention.",
-          culture: "Transition operators to \"System Architects.\" Focus on designing resilient physical networks that the AI can seamlessly manipulate."
-        }
-      }
-    }
+          culture: "Transition operators to \"System Architects.\" Focus on designing resilient physical networks that the AI can seamlessly manipulate.",
+        },
+      },
+    },
   },
   {
     id: "technology",
@@ -213,54 +212,50 @@ const TRACKS: Track[] = [
         example: "Logging core server uptime, tracking basic HTTP error rates, and relying on static alerts when CPU usage spikes above 90%.",
         leap: {
           infrastructure: "Implement centralized, high-volume observability platforms (e.g., Datadog, ELK stack) with distributed tracing capabilities.",
-          culture: "Move engineering teams away from SSH-ing into individual servers. Establish a culture of centralized logging and blameless post-mortems."
-        }
+          culture: "Move engineering teams away from SSH-ing into individual servers. Establish a culture of centralized logging and blameless post-mortems.",
+        },
       },
       2: {
         example: "Utilizing distributed tracing to conduct deep root cause analysis for sudden API latency spikes, pinpointing exact database query bottlenecks.",
         leap: {
           infrastructure: "Adopt anomaly detection models and AIOps tools that can learn normal baseline behaviors for massive microservice architectures.",
-          culture: "Implement strict Site Reliability Engineering (SRE) practices. Shift focus from simply finding bugs to understanding systemic interactions."
-        }
+          culture: "Implement strict Site Reliability Engineering (SRE) practices. Shift focus from simply finding bugs to understanding systemic interactions.",
+        },
       },
       3: {
         example: "Executing predictive capacity planning to auto-scale database read replicas ahead of a known traffic spike, and detecting anomalous access patterns before a breach.",
         leap: {
           infrastructure: "Integrate Automated Runbooks, robust Infrastructure-as-Code (IaC), and continuous deployment pipelines capable of safe rollbacks.",
-          culture: "Trust automated alerts over human monitoring. Cultivate an engineering culture that values writing automation scripts over manual patching."
-        }
+          culture: "Trust automated alerts over human monitoring. Cultivate an engineering culture that values writing automation scripts over manual patching.",
+        },
       },
       4: {
         example: "The platform provides prescriptive performance tuning, automatically recommending optimal memory allocations and database index creations to reduce cloud costs.",
         leap: {
           infrastructure: "Deploy self-healing architectural frameworks, AI-driven code generation, and robust testing suites that validate machine-written infrastructure changes.",
-          culture: "Cross the \"Trust Chasm.\" Allow the AI to automatically push infrastructure changes and code fixes directly to production environments."
-        }
+          culture: "Cross the \"Trust Chasm.\" Allow the AI to automatically push infrastructure changes and code fixes directly to production environments.",
+        },
       },
       5: {
         example: "Self-healing infrastructure agents continuously monitoring the stack, automatically writing code fixes for detected vulnerabilities, testing them, and deploying to production to maintain SLAs.",
         leap: {
           infrastructure: "Develop infallible rollback mechanisms, agentic containment sandboxes, and continuous alignment engines to prevent rogue deployments.",
-          culture: "Engineers evolve into AI overseers and architectural strategists, defining the parameters and goals within which the AI autonomously operates and builds."
-        }
-      }
-    }
-  }
+          culture: "Engineers evolve into AI overseers and architectural strategists, defining the parameters and goals within which the AI autonomously operates and builds.",
+        },
+      },
+    },
+  },
 ];
 
 export default function Index() {
   // Simulator State
-  const [activeTrackId, setActiveTrackId] = useState<TrackId | null>(null);
+  const [activeTrackId, setActiveTrackId] = useState<TrackId | null>("marketing");
   const [activeStageId, setActiveStageId] = useState<number>(1);
-
-
 
   // Calculator State
   const [calcStageId, setCalcStageId] = useState<number>(1);
   const [calcTeamSize, setCalcTeamSize] = useState<number>(10);
   const [calcManualHours, setCalcManualHours] = useState<number>(15);
-
-<ReadinessAuditSection />
 
   // Form & Report State
   const [auditForm, setAuditForm] = useState({ name: "", email: "", company: "", message: "" });
@@ -290,8 +285,6 @@ export default function Index() {
   const weeksPerYear = 52;
   const totalAnnualManualHours = calcTeamSize * calcManualHours * weeksPerYear;
   const wastedAnnualCost = totalAnnualManualHours * hourlyRate;
-  
-  // Agentic Automation Target (Assuming Agentic AI can automate ~90% of manual reporting/spreadsheet work)
   const agenticAutomationTarget = totalAnnualManualHours * 0.9;
 
   // Dynamic Infrastructure Leap for the Calculator
@@ -302,42 +295,42 @@ export default function Index() {
           title: "Centralized Data Warehouse & Automated Pipelines",
           description: "Move off local spreadsheets to establish a single source of truth.",
           color: "bg-blue-50 border-blue-200 text-blue-900",
-          accent: "text-blue-600"
+          accent: "text-blue-600",
         };
       case 2:
         return {
           title: "Predictive ML Environments & Real-Time Streaming",
           description: "Adopt forecasting tools and real-time data ingest pipelines.",
           color: "bg-indigo-50 border-indigo-200 text-indigo-900",
-          accent: "text-indigo-600"
+          accent: "text-indigo-600",
         };
       case 3:
         return {
           title: "Prescriptive Solvers & API Action Layers",
           description: "Implement algorithms that can recommend specific operational actions.",
           color: "bg-violet-50 border-violet-200 text-violet-900",
-          accent: "text-violet-600"
+          accent: "text-violet-600",
         };
       case 4:
         return {
           title: "Autonomous Agent Frameworks & Guardrails",
           description: "Deploy multi-agent systems that can take actions directly in production.",
           color: "bg-purple-50 border-purple-200 text-purple-900",
-          accent: "text-purple-600"
+          accent: "text-purple-600",
         };
       case 5:
         return {
           title: "Systemic Optimization Achieved",
           description: "You are operating at the frontier of agentic enterprise automation.",
           color: "bg-emerald-50 border-emerald-200 text-emerald-900",
-          accent: "text-emerald-600"
+          accent: "text-emerald-600",
         };
       default:
         return {
           title: "Data Evolution Required",
           description: "Determine your stage to see the required infrastructure.",
           color: "bg-slate-50 border-slate-200 text-slate-900",
-          accent: "text-slate-600"
+          accent: "text-slate-600",
         };
     }
   };
@@ -346,9 +339,6 @@ export default function Index() {
 
   return (
     <>
-      {/* The main content wrapper is hidden when printing (print:hidden),
-        ensuring that only the Report Modal prints cleanly.
-      */}
       <div className="min-h-screen bg-slate-50 text-slate-900 selection:bg-indigo-100 font-sans pb-20 print:hidden">
         {/* Header */}
         <header className="sticky top-0 z-20 border-b border-slate-200 bg-white/80 backdrop-blur-md">
@@ -363,12 +353,21 @@ export default function Index() {
                 Data<span className="text-indigo-600">Scale</span> Simulator
               </span>
             </div>
+            <button
+              onClick={() => setIsReportModalOpen(true)}
+              className="inline-flex items-center gap-2 rounded-lg bg-indigo-50 px-3.5 py-2 text-sm font-semibold text-indigo-600 hover:bg-indigo-100 transition-colors"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 17h2a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v2" />
+              </svg>
+              Export Report
+            </button>
           </div>
         </header>
 
-        <main className="mx-auto max-w-7xl px-6 py-12 sm:py-20">
+        <main className="mx-auto max-w-7xl px-6 py-12 sm:py-20 space-y-20">
           {/* Hero Section */}
-          <section className="text-center max-w-3xl mx-auto mb-16">
+          <section className="text-center max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-indigo-50 px-4 py-1.5 text-sm font-medium text-indigo-700 shadow-sm">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
@@ -389,7 +388,7 @@ export default function Index() {
           </section>
 
           {/* Track Selector */}
-          <section className="mb-16">
+          <section>
             <h2 className="text-sm font-bold uppercase tracking-widest text-slate-400 text-center mb-6">
               1. Select a Corporate Track
             </h2>
@@ -428,13 +427,12 @@ export default function Index() {
 
           {/* Simulator Dashboard */}
           {activeTrack && currentContent && currentStageInfo && (
-            <section className="animate-in fade-in slide-in-from-bottom-8 duration-700 mb-20">
+            <section className="animate-in fade-in slide-in-from-bottom-8 duration-700">
               <h2 className="text-sm font-bold uppercase tracking-widest text-slate-400 text-center mb-6">
                 2. Explore The 5-Stage Evolution
               </h2>
               
               <div className="bg-white border border-slate-200 rounded-3xl shadow-sm overflow-hidden">
-                
                 {/* Header inside Dashboard */}
                 <div className="bg-slate-50 border-b border-slate-200 px-6 py-6 md:px-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
                   <div className="flex items-center gap-3">
@@ -448,7 +446,6 @@ export default function Index() {
                 {/* Stepper UI */}
                 <div className="px-6 py-8 md:px-10 border-b border-slate-100">
                   <div className="relative">
-                    {/* Connecting Line */}
                     <div className="absolute top-5 left-0 w-full h-1 bg-slate-100 rounded-full" aria-hidden="true"></div>
                     <div 
                       className="absolute top-5 left-0 h-1 bg-indigo-600 rounded-full transition-all duration-500 ease-in-out" 
@@ -487,7 +484,6 @@ export default function Index() {
                       })}
                     </div>
                   </div>
-                  {/* Mobile stage title fallback */}
                   <div className="mt-6 text-center md:hidden">
                     <p className="text-xs font-bold tracking-wide uppercase text-indigo-600">Stage {currentStageInfo.id}</p>
                     <p className="text-lg font-bold text-slate-900">{currentStageInfo.name}</p>
@@ -496,7 +492,6 @@ export default function Index() {
 
                 {/* Main Content Area */}
                 <div className="p-6 md:p-10 bg-white grid grid-cols-1 lg:grid-cols-5 gap-10">
-                  
                   {/* Left Column: The Example */}
                   <div className="lg:col-span-2 flex flex-col justify-center">
                     <div className="inline-block px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold uppercase tracking-widest rounded-md mb-4 w-max">
@@ -567,377 +562,201 @@ export default function Index() {
                       </div>
                     </div>
                   </div>
-
                 </div>
               </div>
             </section>
           )}
 
+          {/* AI Governance & Risk Assessment Audit */}
+          <ReadinessAuditSection />
+
           {/* Enterprise Data Leap Calculator */}
-          <section className="mb-20">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-sm font-bold uppercase tracking-widest text-indigo-600 text-center mb-2">
-                ROI & Automation Impact
-              </h2>
-              <h3 className="text-3xl font-extrabold text-slate-900 text-center mb-8">
-                The Enterprise Data Leap Calculator
-              </h3>
+          <section className="bg-white border border-slate-200 rounded-3xl p-8 md:p-12 shadow-sm">
+            <div className="max-w-3xl mb-8">
+              <h2 className="text-2xl font-bold text-slate-900">3. Enterprise Data Leap ROI Calculator</h2>
+              <p className="text-slate-600 mt-2">
+                Quantify the annual cost of manual spreadsheet work and calculate your prospective savings by transitioning toward agentic automation.
+              </p>
+            </div>
 
-              <div className="bg-white border border-slate-200 rounded-3xl shadow-sm overflow-hidden flex flex-col md:flex-row">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+              <div className="space-y-6">
+                <div>
+                  <label className="block text-sm font-semibold text-slate-700 mb-2">
+                    Current Analytics Stage: Stage {calcStageId}
+                  </label>
+                  <input
+                    type="range"
+                    min="1"
+                    max="5"
+                    value={calcStageId}
+                    onChange={(e) => setCalcStageId(Number(e.target.value))}
+                    className="w-full accent-indigo-600 cursor-pointer"
+                  />
+                  <p className="text-xs text-slate-500 mt-1">
+                    {STAGES.find((s) => s.id === calcStageId)?.name}
+                  </p>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-slate-700 mb-2">
+                    Team Size (FTEs handling reporting): {calcTeamSize}
+                  </label>
+                  <input
+                    type="range"
+                    min="1"
+                    max="100"
+                    value={calcTeamSize}
+                    onChange={(e) => setCalcTeamSize(Number(e.target.value))}
+                    className="w-full accent-indigo-600 cursor-pointer"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold text-slate-700 mb-2">
+                    Manual Hours per Person/Week spent on spreadsheets: {calcManualHours} hrs
+                  </label>
+                  <input
+                    type="range"
+                    min="1"
+                    max="40"
+                    value={calcManualHours}
+                    onChange={(e) => setCalcManualHours(Number(e.target.value))}
+                    className="w-full accent-indigo-600 cursor-pointer"
+                  />
+                </div>
+              </div>
+
+              <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-4">
+                <h4 className="font-bold text-slate-900 border-b border-slate-200 pb-3">Financial Impact Analysis</h4>
                 
-                {/* Inputs Panel */}
-                <div className="w-full md:w-1/2 p-8 bg-slate-50 border-b md:border-b-0 md:border-r border-slate-200">
-                  <div className="space-y-8">
-                    
-                    {/* Dropdown: Current Stage */}
-                    <div>
-                      <label className="block text-sm font-bold text-slate-900 mb-2">
-                        Current Analytics Stage
-                      </label>
-                      <select 
-                        value={calcStageId}
-                        onChange={(e) => setCalcStageId(Number(e.target.value))}
-                        className="w-full bg-white border border-slate-300 text-slate-900 text-sm rounded-xl focus:ring-indigo-500 focus:border-indigo-500 block p-3 shadow-sm outline-none transition-colors"
-                      >
-                        {STAGES.map((stage) => (
-                          <option key={stage.id} value={stage.id}>
-                            Stage {stage.id}: {stage.name}
-                          </option>
-                        ))}
-                      </select>
-                    </div>
-
-                    {/* Slider: Team Size */}
-                    <div>
-                      <div className="flex justify-between items-center mb-2">
-                        <label className="block text-sm font-bold text-slate-900">
-                          Current Team Size
-                        </label>
-                        <span className="bg-indigo-100 text-indigo-700 text-xs font-bold px-2.5 py-1 rounded-md">
-                          {calcTeamSize} members
-                        </span>
-                      </div>
-                      <input 
-                        type="range" 
-                        min="1" 
-                        max="100" 
-                        value={calcTeamSize} 
-                        onChange={(e) => setCalcTeamSize(Number(e.target.value))}
-                        className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600" 
-                      />
-                    </div>
-
-                    {/* Slider: Manual Hours */}
-                    <div>
-                      <div className="flex justify-between items-center mb-2">
-                        <label className="block text-sm font-bold text-slate-900">
-                          Hours Spent on Manual Reporting
-                        </label>
-                        <span className="bg-indigo-100 text-indigo-700 text-xs font-bold px-2.5 py-1 rounded-md">
-                          {calcManualHours} hrs / week
-                        </span>
-                      </div>
-                      <p className="text-xs text-slate-500 mb-3 leading-relaxed">
-                        Time spent per team member gathering data, cleaning spreadsheets, and building static reports.
-                      </p>
-                      <input 
-                        type="range" 
-                        min="1" 
-                        max="40" 
-                        value={calcManualHours} 
-                        onChange={(e) => setCalcManualHours(Number(e.target.value))}
-                        className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-indigo-600" 
-                      />
-                    </div>
-
-                  </div>
+                <div className="flex justify-between items-center text-sm">
+                  <span className="text-slate-600">Annual Manual Hours Spent:</span>
+                  <span className="font-bold text-slate-900">{totalAnnualManualHours.toLocaleString()} hrs</span>
                 </div>
 
-                {/* Outputs Panel */}
-                <div className="w-full md:w-1/2 p-8 flex flex-col justify-center space-y-6">
-                  
-                  {/* Wasted Cost */}
-                  <div>
-                    <p className="text-sm font-bold text-slate-500 uppercase tracking-wide mb-1">
-                      Wasted Annual Productivity Cost
-                    </p>
-                    <p className="text-4xl font-extrabold text-slate-900">
-                      {new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(wastedAnnualCost)}
-                    </p>
-                    <p className="text-xs text-slate-400 mt-1">
-                      Calculated at an average corporate wage of $50/hr.
-                    </p>
-                  </div>
-
-                  <hr className="border-slate-100" />
-
-                  {/* Agentic Target */}
-                  <div>
-                    <p className="text-sm font-bold text-slate-500 uppercase tracking-wide mb-1">
-                      Agentic Automation Target
-                    </p>
-                    <div className="flex items-center gap-2">
-                      <p className="text-3xl font-bold text-indigo-600">
-                        {new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 }).format(agenticAutomationTarget)} hrs
-                      </p>
-                      <span className="text-sm font-medium text-slate-600 mt-1">
-                        can be automated annually
-                      </span>
-                    </div>
-                  </div>
-
-                  {/* Dynamic Status Card */}
-                  <div className={`mt-4 p-5 rounded-2xl border ${currentLeapInfo.color}`}>
-                    <div className="flex items-center gap-2 mb-2">
-                      <svg className={`w-5 h-5 ${currentLeapInfo.accent}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                      </svg>
-                      <h4 className="font-bold text-sm uppercase tracking-wide">
-                        Next Infrastructure Leap
-                      </h4>
-                    </div>
-                    <p className="font-semibold text-lg leading-snug mb-1">
-                      {currentLeapInfo.title}
-                    </p>
-                    <p className="text-sm opacity-90 leading-relaxed">
-                      {currentLeapInfo.description}
-                    </p>
-                  </div>
-
+                <div className="flex justify-between items-center text-sm">
+                  <span className="text-slate-600">Estimated Cost of Manual Work (@ $50/hr):</span>
+                  <span className="font-bold text-red-600">${wastedAnnualCost.toLocaleString()}</span>
                 </div>
 
+                <div className="flex justify-between items-center text-sm pt-2 border-t border-slate-200">
+                  <span className="text-slate-600">Agentic Automation Target (90% Efficiency):</span>
+                  <span className="font-extrabold text-emerald-600">${(wastedAnnualCost * 0.9).toLocaleString()}/yr</span>
+                </div>
+
+                <div className={`mt-4 p-4 rounded-xl border ${currentLeapInfo.color}`}>
+                  <p className="text-xs font-bold uppercase tracking-wider mb-1">Required Next Infrastructure Leap:</p>
+                  <p className="font-bold text-sm">{currentLeapInfo.title}</p>
+                  <p className="text-xs mt-1 opacity-90">{currentLeapInfo.description}</p>
+                </div>
               </div>
             </div>
           </section>
 
-          {/* NEW SECTION: Next Steps (Report Generator & Audit Form) */}
-          <section className="max-w-6xl mx-auto border-t border-slate-200 pt-16">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              
-              {/* Left Column: PDF Report Exporter CTA */}
-              <div className="flex flex-col justify-center">
-                <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-1.5 text-sm font-medium text-blue-700 shadow-sm w-max mb-6">
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                  Custom Assessment
-                </div>
-                <h3 className="text-3xl font-extrabold text-slate-900 mb-4 leading-tight">
-                  Export Your Executive Summary Report
-                </h3>
-                <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                  Generate a customized, print-ready strategy brief outlining your organization's required infrastructure leaps, estimated productivity reclamation, and cultural shifts based on your inputs today.
-                </p>
-                <div className="bg-white p-6 rounded-3xl border border-slate-200 shadow-sm">
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center text-slate-500">
-                      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
-                      </svg>
-                    </div>
-                    <div>
-                      <p className="font-bold text-slate-900">Ready for the Boardroom</p>
-                      <p className="text-sm text-slate-500">Includes targeted ROI projections.</p>
-                    </div>
-                  </div>
-                  <button 
-                    onClick={() => setIsReportModalOpen(true)}
-                    className="w-full bg-slate-900 text-white font-bold py-4 px-6 rounded-xl hover:bg-slate-800 transition-colors shadow-md flex items-center justify-center gap-2"
-                  >
-                    <span>Generate & View Report</span>
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-
-              {/* Right Column: The Audit Form */}
-              <div className="bg-white rounded-3xl border border-slate-200 shadow-lg shadow-slate-200/50 p-8 md:p-10">
-                <h3 className="text-2xl font-bold text-slate-900 mb-2">Secure Your Specialized Stage-Bridge Audit</h3>
-                <p className="text-slate-600 mb-8 text-sm">
-                  Let our top-tier Subject Matter Experts guide you through the technical and cultural transition.
-                </p>
-
-                <form onSubmit={handleFormSubmit} className="space-y-5">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-sm font-bold text-slate-700 mb-1.5">Full Name</label>
-                      <input 
-                        type="text" 
-                        name="name"
-                        required
-                        value={auditForm.name}
-                        onChange={handleFormChange}
-                        className="w-full bg-slate-50 border border-slate-200 text-slate-900 text-sm rounded-xl focus:ring-indigo-500 focus:border-indigo-500 block p-3 outline-none transition-colors"
-                        placeholder="Jane Doe"
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-bold text-slate-700 mb-1.5">Corporate Email</label>
-                      <input 
-                        type="email" 
-                        name="email"
-                        required
-                        value={auditForm.email}
-                        onChange={handleFormChange}
-                        className="w-full bg-slate-50 border border-slate-200 text-slate-900 text-sm rounded-xl focus:ring-indigo-500 focus:border-indigo-500 block p-3 outline-none transition-colors"
-                        placeholder="jane@company.com"
-                      />
-                    </div>
-                  </div>
-                  <div>
-                    <label className="block text-sm font-bold text-slate-700 mb-1.5">Company Name</label>
-                    <input 
-                      type="text" 
-                      name="company"
-                      required
-                      value={auditForm.company}
-                      onChange={handleFormChange}
-                      className="w-full bg-slate-50 border border-slate-200 text-slate-900 text-sm rounded-xl focus:ring-indigo-500 focus:border-indigo-500 block p-3 outline-none transition-colors"
-                      placeholder="Acme Corp"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-sm font-bold text-slate-700 mb-1.5">Current Challenges</label>
-                    <textarea 
-                      name="message"
-                      rows={4}
-                      value={auditForm.message}
-                      onChange={handleFormChange}
-                      className="w-full bg-slate-50 border border-slate-200 text-slate-900 text-sm rounded-xl focus:ring-indigo-500 focus:border-indigo-500 block p-3 outline-none transition-colors resize-none"
-                      placeholder="Briefly describe the data bottlenecks holding your team back..."
-                    ></textarea>
-                  </div>
-                  <button 
-                    type="submit"
-                    className="w-full bg-indigo-600 text-white font-bold py-4 px-6 rounded-xl hover:bg-indigo-700 transition-all shadow-md shadow-indigo-600/20 active:scale-[0.98]"
-                  >
-                    Schedule Strategic Consultation with an SME
-                  </button>
-                </form>
-              </div>
-
+          {/* Executive Audit Request Form */}
+          <section className="bg-slate-900 text-white rounded-3xl p-8 md:p-12 shadow-xl">
+            <div className="max-w-2xl mx-auto text-center space-y-4 mb-8">
+              <h2 className="text-3xl font-extrabold tracking-tight">Request an AI & Data Governance Audit</h2>
+              <p className="text-slate-300">
+                Partner with our enterprise architecture SMEs to evaluate your current data pipelines, risk parameters, and agentic readiness.
+              </p>
             </div>
+
+            <form onSubmit={handleFormSubmit} className="max-w-xl mx-auto space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Full Name"
+                  required
+                  value={auditForm.name}
+                  onChange={handleFormChange}
+                  className="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Work Email"
+                  required
+                  value={auditForm.email}
+                  onChange={handleFormChange}
+                  className="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                />
+              </div>
+              <input
+                type="text"
+                name="company"
+                placeholder="Company Name"
+                required
+                value={auditForm.company}
+                onChange={handleFormChange}
+                className="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              />
+              <textarea
+                name="message"
+                rows={3}
+                placeholder="Describe your primary data/AI challenge..."
+                value={auditForm.message}
+                onChange={handleFormChange}
+                className="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              ></textarea>
+              <button
+                type="submit"
+                className="w-full py-3.5 px-6 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold transition-colors shadow-lg shadow-indigo-600/30"
+              >
+                Submit Consultation Request
+              </button>
+            </form>
           </section>
         </main>
       </div>
 
-      {/* Simulated PDF / Native Print Modal 
-        This is hidden by default, but uses print:block to ensure it's the ONLY thing that prints.
-      */}
+      {/* Printable Report Modal */}
       {isReportModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 backdrop-blur-sm p-4 print:p-0 print:bg-white print:static print:block">
-          
-          <div className="bg-white w-full max-w-3xl max-h-[90vh] overflow-y-auto rounded-3xl shadow-2xl relative print:max-h-none print:shadow-none print:rounded-none print:overflow-visible">
-            
-            {/* Modal Actions (Hidden when printing) */}
-            <div className="sticky top-0 bg-white/90 backdrop-blur border-b border-slate-100 p-4 flex justify-between items-center z-10 print:hidden rounded-t-3xl">
-              <p className="font-bold text-slate-800 ml-4">Report Preview</p>
-              <div className="flex gap-2">
-                <button 
+        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-8 shadow-2xl relative">
+            <button
+              onClick={() => setIsReportModalOpen(false)}
+              className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 print:hidden"
+            >
+              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            <div className="space-y-6">
+              <div className="border-b border-slate-200 pb-4">
+                <h3 className="text-2xl font-bold text-slate-900">Data & AI Maturity Executive Summary</h3>
+                <p className="text-xs text-slate-500 mt-1">Generated by DataScale Strategy Simulator</p>
+              </div>
+
+              <div className="space-y-3 text-sm text-slate-700">
+                <p><strong>Selected Track:</strong> {activeTrack?.title}</p>
+                <p><strong>Current Selected Stage:</strong> Stage {activeStageId} ({currentStageInfo?.name})</p>
+                <p><strong>Estimated Annual Manual Work Cost:</strong> ${wastedAnnualCost.toLocaleString()}</p>
+                <p><strong>Potential Agentic Savings:</strong> ${(wastedAnnualCost * 0.9).toLocaleString()}/yr</p>
+              </div>
+
+              <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs space-y-2">
+                <p className="font-bold text-slate-900">Recommended Next Step:</p>
+                <p className="text-slate-600">{currentContent?.leap.infrastructure}</p>
+              </div>
+
+              <div className="flex justify-between items-center pt-4 border-t border-slate-200 print:hidden">
+                <button
                   onClick={() => window.print()}
-                  className="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-indigo-700 shadow-sm flex items-center gap-2"
+                  className="px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-bold hover:bg-indigo-500"
                 >
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z" />
-                  </svg>
-                  Save as PDF / Print
+                  Print / Save PDF
                 </button>
-                <button 
+                <button
                   onClick={() => setIsReportModalOpen(false)}
-                  className="bg-slate-100 text-slate-600 px-4 py-2 rounded-lg text-sm font-bold hover:bg-slate-200"
+                  className="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg text-sm font-medium hover:bg-slate-200"
                 >
                   Close
                 </button>
               </div>
-            </div>
-
-            {/* Print Document Content */}
-            <div className="p-10 md:p-14 bg-white text-slate-900 font-sans">
-              
-              {/* Doc Header */}
-              <div className="border-b-2 border-slate-900 pb-6 mb-8 flex justify-between items-end">
-                <div>
-                  <h1 className="text-3xl font-black text-slate-900 uppercase tracking-tight">Executive Summary</h1>
-                  <p className="text-slate-500 font-medium mt-1">Data Leap Assessment & Roadmap</p>
-                </div>
-                <div className="text-right">
-                  <p className="font-bold text-indigo-600">DataScale Corp.</p>
-                  <p className="text-sm text-slate-500">{new Date().toLocaleDateString()}</p>
-                </div>
-              </div>
-
-              {/* Assessment Context */}
-              <div className="mb-10">
-                <h2 className="text-lg font-bold uppercase text-slate-400 tracking-wider mb-4">I. Current Operational Profile</h2>
-                <div className="grid grid-cols-2 gap-6 bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                  <div>
-                    <p className="text-sm text-slate-500 mb-1">Assessed Track</p>
-                    <p className="font-bold text-lg">{activeTrack?.title || "Enterprise General"}</p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-slate-500 mb-1">Current Maturity Stage</p>
-                    <p className="font-bold text-lg">Stage {calcStageId}: {STAGES.find(s => s.id === calcStageId)?.name}</p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-slate-500 mb-1">Team Size</p>
-                    <p className="font-bold text-lg">{calcTeamSize} Members</p>
-                  </div>
-                  <div>
-                    <p className="text-sm text-slate-500 mb-1">Manual Reporting Overhead</p>
-                    <p className="font-bold text-lg">{calcManualHours} Hours / Week / Member</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Financial Impact */}
-              <div className="mb-10">
-                <h2 className="text-lg font-bold uppercase text-slate-400 tracking-wider mb-4">II. Financial & Productivity Impact</h2>
-                <div className="flex gap-6">
-                  <div className="flex-1 p-6 bg-red-50 border border-red-100 rounded-2xl text-red-900">
-                    <p className="text-sm font-bold uppercase tracking-wide mb-2 text-red-700">Wasted Annual Cost</p>
-                    <p className="text-4xl font-black">{new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(wastedAnnualCost)}</p>
-                    <p className="text-xs mt-2 opacity-80">Opportunity cost lost to manual data wrangling.</p>
-                  </div>
-                  <div className="flex-1 p-6 bg-indigo-50 border border-indigo-100 rounded-2xl text-indigo-900">
-                    <p className="text-sm font-bold uppercase tracking-wide mb-2 text-indigo-700">Automation Target</p>
-                    <p className="text-4xl font-black">{new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 }).format(agenticAutomationTarget)} Hrs</p>
-                    <p className="text-xs mt-2 opacity-80">Annual hours reclaimable via targeted AI deployment.</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Strategic Leap */}
-              <div>
-                <h2 className="text-lg font-bold uppercase text-slate-400 tracking-wider mb-4">III. Prescribed Strategic Leap</h2>
-                <div className="bg-white border border-slate-200 rounded-2xl p-8">
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">{currentLeapInfo.title}</h3>
-                  <p className="text-slate-600 mb-6">{currentLeapInfo.description}</p>
-                  
-                  <div className="space-y-4">
-                    <div>
-                      <p className="font-bold text-slate-900 mb-1">Required Infrastructure Shift:</p>
-                      <p className="text-sm text-slate-600 bg-slate-50 p-3 rounded-lg border border-slate-100">
-                        {currentContent?.leap.infrastructure || "Please select a specific track in the simulator to view customized infrastructure recommendations."}
-                      </p>
-                    </div>
-                    <div>
-                      <p className="font-bold text-slate-900 mb-1">Required Cultural Shift:</p>
-                      <p className="text-sm text-slate-600 bg-slate-50 p-3 rounded-lg border border-slate-100">
-                        {currentContent?.leap.culture || "Please select a specific track in the simulator to view customized cultural recommendations."}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Footer */}
-              <div className="mt-12 pt-6 border-t border-slate-200 text-center text-xs text-slate-400">
-                <p>CONFIDENTIAL – For Internal Strategy Planning Only</p>
-                <p>Generated by DataScale Simulator</p>
-              </div>
-
             </div>
           </div>
         </div>
