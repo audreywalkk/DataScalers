@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import React, { useState } from "react";
 import { ReadinessAuditSection } from "../components/ui/ReadinessAudit";
+import { RiskPredictorSection } from "../components/ui/RiskPredictor";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -252,11 +253,6 @@ export default function Index() {
   const [activeTrackId, setActiveTrackId] = useState<TrackId | null>("marketing");
   const [activeStageId, setActiveStageId] = useState<number>(1);
 
-  // Calculator State
-  const [calcStageId, setCalcStageId] = useState<number>(1);
-  const [calcTeamSize, setCalcTeamSize] = useState<number>(10);
-  const [calcManualHours, setCalcManualHours] = useState<number>(15);
-
   // Form & Report State
   const [auditForm, setAuditForm] = useState({ name: "", email: "", company: "", message: "" });
   const [isReportModalOpen, setIsReportModalOpen] = useState<boolean>(false);
@@ -280,391 +276,262 @@ export default function Index() {
     setAuditForm({ name: "", email: "", company: "", message: "" });
   };
 
-  // Calculator Logic
-  const hourlyRate = 50;
-  const weeksPerYear = 52;
-  const totalAnnualManualHours = calcTeamSize * calcManualHours * weeksPerYear;
-  const wastedAnnualCost = totalAnnualManualHours * hourlyRate;
-  const agenticAutomationTarget = totalAnnualManualHours * 0.9;
-
-  // Dynamic Infrastructure Leap for the Calculator
-  const getInfrastructureLeap = (stage: number) => {
-    switch (stage) {
-      case 1:
-        return {
-          title: "Centralized Data Warehouse & Automated Pipelines",
-          description: "Move off local spreadsheets to establish a single source of truth.",
-          color: "bg-blue-50 border-blue-200 text-blue-900",
-          accent: "text-blue-600",
-        };
-      case 2:
-        return {
-          title: "Predictive ML Environments & Real-Time Streaming",
-          description: "Adopt forecasting tools and real-time data ingest pipelines.",
-          color: "bg-indigo-50 border-indigo-200 text-indigo-900",
-          accent: "text-indigo-600",
-        };
-      case 3:
-        return {
-          title: "Prescriptive Solvers & API Action Layers",
-          description: "Implement algorithms that can recommend specific operational actions.",
-          color: "bg-violet-50 border-violet-200 text-violet-900",
-          accent: "text-violet-600",
-        };
-      case 4:
-        return {
-          title: "Autonomous Agent Frameworks & Guardrails",
-          description: "Deploy multi-agent systems that can take actions directly in production.",
-          color: "bg-purple-50 border-purple-200 text-purple-900",
-          accent: "text-purple-600",
-        };
-      case 5:
-        return {
-          title: "Systemic Optimization Achieved",
-          description: "You are operating at the frontier of agentic enterprise automation.",
-          color: "bg-emerald-50 border-emerald-200 text-emerald-900",
-          accent: "text-emerald-600",
-        };
-      default:
-        return {
-          title: "Data Evolution Required",
-          description: "Determine your stage to see the required infrastructure.",
-          color: "bg-slate-50 border-slate-200 text-slate-900",
-          accent: "text-slate-600",
-        };
-    }
+  const scrollToConsultation = () => {
+    document.getElementById("consultation-form")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const currentLeapInfo = getInfrastructureLeap(calcStageId);
-
   return (
-    <>
-      <div className="min-h-screen bg-slate-50 text-slate-900 selection:bg-indigo-100 font-sans pb-20 print:hidden">
-        {/* Header */}
-        <header className="sticky top-0 z-20 border-b border-slate-200 bg-white/80 backdrop-blur-md">
-          <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-            <div className="flex items-center gap-3">
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-indigo-600 text-white shadow-sm">
-                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 13h2.243a2 2 0 011.567.752l2.38 3.174a2 2 0 003.134 0l3.656-4.874a2 2 0 011.567-.752H21" />
-                </svg>
-              </div>
-              <span className="text-lg font-bold tracking-tight text-slate-900">
-                Data<span className="text-indigo-600">Scale</span> Simulator
-              </span>
-            </div>
-            <button
-              onClick={() => setIsReportModalOpen(true)}
-              className="inline-flex items-center gap-2 rounded-lg bg-indigo-50 px-3.5 py-2 text-sm font-semibold text-indigo-600 hover:bg-indigo-100 transition-colors"
-            >
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17 17h2a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v2" />
+    <div className="min-h-screen bg-slate-50 text-slate-900 selection:bg-indigo-100 font-sans pb-20 print:hidden">
+      {/* Header */}
+      <header className="sticky top-0 z-20 border-b border-slate-200 bg-white/80 backdrop-blur-md">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+          <div className="flex items-center gap-3">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-indigo-600 text-white shadow-sm">
+              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 13h2.243a2 2 0 011.567.752l2.38 3.174a2 2 0 003.134 0l3.656-4.874a2 2 0 011.567-.752H21" />
               </svg>
-              Export Report
-            </button>
+            </div>
+            <span className="text-lg font-bold tracking-tight text-slate-900">
+              Data<span className="text-indigo-600">Scale</span> Simulator
+            </span>
           </div>
-        </header>
+          <button
+            onClick={() => setIsReportModalOpen(true)}
+            className="inline-flex items-center gap-2 rounded-lg bg-indigo-50 px-3.5 py-2 text-sm font-semibold text-indigo-600 hover:bg-indigo-100 transition-colors"
+          >
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17 17h2a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v2" />
+            </svg>
+            Export Report
+          </button>
+        </div>
+      </header>
 
-        <main className="mx-auto max-w-7xl px-6 py-12 sm:py-20 space-y-20">
-          {/* Hero Section */}
-          <section className="text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-indigo-50 px-4 py-1.5 text-sm font-medium text-indigo-700 shadow-sm">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
-              </span>
-              Interactive Strategy Simulator
-            </div>
-            <h1 className="mt-6 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
-              The Data & Analytics <br className="hidden sm:block" />
-              <span className="bg-gradient-to-r from-indigo-600 to-blue-500 bg-clip-text text-transparent">
-                Maturity Journey
-              </span>
-            </h1>
-            <p className="mt-6 text-lg leading-relaxed text-slate-600">
-              Explore how modern enterprise departments scale their data capabilities. 
-              Select your track below to trace the evolution from static historical reporting all the way to autonomous agentic AI.
-            </p>
-          </section>
+      <main className="mx-auto max-w-7xl px-6 py-12 sm:py-20 space-y-20">
+        {/* Hero Section */}
+        <section className="text-center max-w-3xl mx-auto">
+          <div className="inline-flex items-center gap-2 rounded-full border border-indigo-100 bg-indigo-50 px-4 py-1.5 text-sm font-medium text-indigo-700 shadow-sm">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-indigo-500"></span>
+            </span>
+            Interactive Strategy Simulator
+          </div>
+          <h1 className="mt-6 text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
+            The Data & Analytics <br className="hidden sm:block" />
+            <span className="bg-gradient-to-r from-indigo-600 to-blue-500 bg-clip-text text-transparent">
+              Maturity Journey
+            </span>
+          </h1>
+          <p className="mt-6 text-lg leading-relaxed text-slate-600">
+            Explore how modern enterprise departments scale their data capabilities. 
+            Select your track below to trace the evolution from static historical reporting all the way to autonomous agentic AI.
+          </p>
+        </section>
 
-          {/* Track Selector */}
-          <section>
-            <h2 className="text-sm font-bold uppercase tracking-widest text-slate-400 text-center mb-6">
-              1. Select a Corporate Track
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-              {TRACKS.map((track) => {
-                const isActive = activeTrackId === track.id;
-                return (
-                  <button
-                    key={track.id}
-                    onClick={() => handleTrackSelect(track.id)}
-                    className={`relative flex flex-col items-start p-6 rounded-2xl border text-left transition-all duration-300 ${
-                      isActive
-                        ? "bg-white border-indigo-600 shadow-md shadow-indigo-600/10 ring-1 ring-indigo-600 scale-[1.02]"
-                        : "bg-white border-slate-200 hover:border-indigo-300 hover:shadow-sm"
-                    }`}
-                  >
-                    <div className={`p-3 rounded-xl mb-4 ${isActive ? "bg-indigo-600 text-white" : "bg-slate-100 text-slate-600"}`}>
-                      {track.icon}
+        {/* 1. Track Selector */}
+        <section>
+          <h2 className="text-sm font-bold uppercase tracking-widest text-slate-400 text-center mb-6">
+            1. Select a Corporate Track
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {TRACKS.map((track) => {
+              const isActive = activeTrackId === track.id;
+              return (
+                <button
+                  key={track.id}
+                  onClick={() => handleTrackSelect(track.id)}
+                  className={`relative flex flex-col items-start p-6 rounded-2xl border text-left transition-all duration-300 ${
+                    isActive
+                      ? "bg-white border-indigo-600 shadow-md shadow-indigo-600/10 ring-1 ring-indigo-600 scale-[1.02]"
+                      : "bg-white border-slate-200 hover:border-indigo-300 hover:shadow-sm"
+                  }`}
+                >
+                  <div className={`p-3 rounded-xl mb-4 ${isActive ? "bg-indigo-600 text-white" : "bg-slate-100 text-slate-600"}`}>
+                    {track.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900">{track.title}</h3>
+                  <p className="mt-2 text-sm text-slate-500 leading-relaxed">
+                    {track.description}
+                  </p>
+                  {isActive && (
+                    <div className="absolute top-4 right-4 text-indigo-600">
+                      <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
                     </div>
-                    <h3 className="text-xl font-bold text-slate-900">{track.title}</h3>
-                    <p className="mt-2 text-sm text-slate-500 leading-relaxed">
-                      {track.description}
-                    </p>
-                    {isActive && (
-                      <div className="absolute top-4 right-4 text-indigo-600">
-                        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                        </svg>
-                      </div>
-                    )}
-                  </button>
-                );
-              })}
-            </div>
-          </section>
+                  )}
+                </button>
+              );
+            })}
+          </div>
+        </section>
 
-          {/* Simulator Dashboard */}
-          {activeTrack && currentContent && currentStageInfo && (
-            <section className="animate-in fade-in slide-in-from-bottom-8 duration-700">
-              <h2 className="text-sm font-bold uppercase tracking-widest text-slate-400 text-center mb-6">
-                2. Explore The 5-Stage Evolution
-              </h2>
-              
-              <div className="bg-white border border-slate-200 rounded-3xl shadow-sm overflow-hidden">
-                {/* Header inside Dashboard */}
-                <div className="bg-slate-50 border-b border-slate-200 px-6 py-6 md:px-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
-                  <div className="flex items-center gap-3">
-                    <div className="text-indigo-600 bg-indigo-100 p-2 rounded-lg">
+        {/* 2. Simulator Dashboard */}
+        {activeTrack && currentContent && currentStageInfo && (
+          <section className="animate-in fade-in slide-in-from-bottom-8 duration-700">
+            <h2 className="text-sm font-bold uppercase tracking-widest text-slate-400 text-center mb-6">
+              2. Explore The 5-Stage Evolution
+            </h2>
+            
+            <div className="bg-white border border-slate-200 rounded-3xl shadow-sm overflow-hidden">
+              {/* Header inside Dashboard */}
+              <div className="bg-slate-50 border-b border-slate-200 px-6 py-6 md:px-10 flex flex-col md:flex-row md:items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  <div className="text-indigo-600 bg-indigo-100 p-2 rounded-lg">
+                    {activeTrack.icon}
+                  </div>
+                  <h3 className="text-2xl font-bold text-slate-900">{activeTrack.title} Evolution</h3>
+                </div>
+              </div>
+
+              {/* Stepper UI */}
+              <div className="px-6 py-8 md:px-10 border-b border-slate-100">
+                <div className="relative">
+                  <div className="absolute top-5 left-0 w-full h-1 bg-slate-100 rounded-full" aria-hidden="true"></div>
+                  <div 
+                    className="absolute top-5 left-0 h-1 bg-indigo-600 rounded-full transition-all duration-500 ease-in-out" 
+                    style={{ width: `${((activeStageId - 1) / (STAGES.length - 1)) * 100}%` }}
+                    aria-hidden="true"
+                  ></div>
+
+                  <div className="relative flex justify-between">
+                    {STAGES.map((stage) => {
+                      const isActive = activeStageId === stage.id;
+                      const isPast = activeStageId > stage.id;
+                      return (
+                        <div key={stage.id} className="flex flex-col items-center group relative w-1/5">
+                          <button
+                            onClick={() => setActiveStageId(stage.id)}
+                            className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm z-10 transition-colors duration-300 ring-4 ring-white ${
+                              isActive
+                                ? "bg-indigo-600 text-white shadow-md"
+                                : isPast
+                                ? "bg-indigo-100 text-indigo-700 hover:bg-indigo-200"
+                                : "bg-slate-100 text-slate-400 hover:bg-slate-200"
+                            }`}
+                          >
+                            {isPast ? "✓" : stage.id}
+                          </button>
+                          <div className="mt-3 text-center hidden md:block">
+                            <p className={`text-xs font-bold tracking-wide uppercase transition-colors ${isActive ? "text-indigo-600" : "text-slate-400"}`}>
+                              Stage {stage.id}
+                            </p>
+                            <p className={`text-sm mt-1 font-medium transition-colors ${isActive ? "text-slate-900" : "text-slate-500"}`}>
+                              {stage.name}
+                            </p>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+                <div className="mt-6 text-center md:hidden">
+                  <p className="text-xs font-bold tracking-wide uppercase text-indigo-600">Stage {currentStageInfo.id}</p>
+                  <p className="text-lg font-bold text-slate-900">{currentStageInfo.name}</p>
+                </div>
+              </div>
+
+              {/* Main Content Area */}
+              <div className="p-6 md:p-10 bg-white grid grid-cols-1 lg:grid-cols-5 gap-10">
+                {/* Left Column: The Example */}
+                <div className="lg:col-span-2 flex flex-col justify-center">
+                  <div className="inline-block px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold uppercase tracking-widest rounded-md mb-4 w-max">
+                    The Reality
+                  </div>
+                  <h4 className="text-3xl font-extrabold text-slate-900 tracking-tight mb-2">
+                    "{currentStageInfo.question}"
+                  </h4>
+                  <p className="text-lg text-slate-600 leading-relaxed mb-6">
+                    {currentStageInfo.name}
+                  </p>
+                  <div className="p-6 rounded-2xl bg-indigo-50 border border-indigo-100 relative overflow-hidden">
+                    <div className="absolute top-0 right-0 p-4 opacity-10">
                       {activeTrack.icon}
                     </div>
-                    <h3 className="text-2xl font-bold text-slate-900">{activeTrack.title} Evolution</h3>
-                  </div>
-                </div>
-
-                {/* Stepper UI */}
-                <div className="px-6 py-8 md:px-10 border-b border-slate-100">
-                  <div className="relative">
-                    <div className="absolute top-5 left-0 w-full h-1 bg-slate-100 rounded-full" aria-hidden="true"></div>
-                    <div 
-                      className="absolute top-5 left-0 h-1 bg-indigo-600 rounded-full transition-all duration-500 ease-in-out" 
-                      style={{ width: `${((activeStageId - 1) / (STAGES.length - 1)) * 100}%` }}
-                      aria-hidden="true"
-                    ></div>
-
-                    <div className="relative flex justify-between">
-                      {STAGES.map((stage) => {
-                        const isActive = activeStageId === stage.id;
-                        const isPast = activeStageId > stage.id;
-                        return (
-                          <div key={stage.id} className="flex flex-col items-center group relative w-1/5">
-                            <button
-                              onClick={() => setActiveStageId(stage.id)}
-                              className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-sm z-10 transition-colors duration-300 ring-4 ring-white ${
-                                isActive
-                                  ? "bg-indigo-600 text-white shadow-md"
-                                  : isPast
-                                  ? "bg-indigo-100 text-indigo-700 hover:bg-indigo-200"
-                                  : "bg-slate-100 text-slate-400 hover:bg-slate-200"
-                              }`}
-                            >
-                              {isPast ? "✓" : stage.id}
-                            </button>
-                            <div className="mt-3 text-center hidden md:block">
-                              <p className={`text-xs font-bold tracking-wide uppercase transition-colors ${isActive ? "text-indigo-600" : "text-slate-400"}`}>
-                                Stage {stage.id}
-                              </p>
-                              <p className={`text-sm mt-1 font-medium transition-colors ${isActive ? "text-slate-900" : "text-slate-500"}`}>
-                                {stage.name}
-                              </p>
-                            </div>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                  <div className="mt-6 text-center md:hidden">
-                    <p className="text-xs font-bold tracking-wide uppercase text-indigo-600">Stage {currentStageInfo.id}</p>
-                    <p className="text-lg font-bold text-slate-900">{currentStageInfo.name}</p>
-                  </div>
-                </div>
-
-                {/* Main Content Area */}
-                <div className="p-6 md:p-10 bg-white grid grid-cols-1 lg:grid-cols-5 gap-10">
-                  {/* Left Column: The Example */}
-                  <div className="lg:col-span-2 flex flex-col justify-center">
-                    <div className="inline-block px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold uppercase tracking-widest rounded-md mb-4 w-max">
-                      The Reality
-                    </div>
-                    <h4 className="text-3xl font-extrabold text-slate-900 tracking-tight mb-2">
-                      "{currentStageInfo.question}"
-                    </h4>
-                    <p className="text-lg text-slate-600 leading-relaxed mb-6">
-                      {currentStageInfo.name}
+                    <p className="relative text-slate-800 text-lg leading-relaxed font-medium">
+                      {currentContent.example}
                     </p>
-                    <div className="p-6 rounded-2xl bg-indigo-50 border border-indigo-100 relative overflow-hidden">
-                      <div className="absolute top-0 right-0 p-4 opacity-10">
-                        {activeTrack.icon}
-                      </div>
-                      <p className="relative text-slate-800 text-lg leading-relaxed font-medium">
-                        {currentContent.example}
-                      </p>
-                    </div>
                   </div>
+                </div>
 
-                  {/* Right Column: The Leap */}
-                  <div className="lg:col-span-3">
-                    <div className="h-full rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-                      <div className="flex items-center gap-3 mb-6">
-                        <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
-                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                {/* Right Column: The Leap */}
+                <div className="lg:col-span-3">
+                  <div className="h-full rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+                    <div className="flex items-center gap-3 mb-6">
+                      <div className="w-8 h-8 rounded-full bg-blue-100 flex items-center justify-center text-blue-600">
+                        <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                        </svg>
+                      </div>
+                      <h4 className="text-xl font-bold text-slate-900">
+                        {activeStageId === 5 ? "Securing The Future" : "The Leap to Next Stage"}
+                      </h4>
+                    </div>
+                    
+                    <p className="text-slate-500 mb-8 leading-relaxed">
+                      {activeStageId === 5 
+                        ? "Maintaining and governing this autonomous state requires advanced frameworks." 
+                        : "To scale your data capabilities to the next level, your organization must fundamentally shift both its technical stack and its human mindset."}
+                    </p>
+
+                    <div className="space-y-6">
+                      {/* Infra Card */}
+                      <div className="p-5 rounded-2xl border border-slate-100 bg-slate-50 hover:bg-slate-100/50 transition-colors">
+                        <h5 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-slate-900 mb-3">
+                          <svg className="w-4 h-4 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
                           </svg>
-                        </div>
-                        <h4 className="text-xl font-bold text-slate-900">
-                          {activeStageId === 5 ? "Securing The Future" : "The Leap to Next Stage"}
-                        </h4>
+                          Infrastructure Needed
+                        </h5>
+                        <p className="text-slate-600 leading-relaxed">
+                          {currentContent.leap.infrastructure}
+                        </p>
                       </div>
-                      
-                      <p className="text-slate-500 mb-8 leading-relaxed">
-                        {activeStageId === 5 
-                          ? "Maintaining and governing this autonomous state requires advanced frameworks." 
-                          : "To scale your data capabilities to the next level, your organization must fundamentally shift both its technical stack and its human mindset."}
-                      </p>
 
-                      <div className="space-y-6">
-                        {/* Infra Card */}
-                        <div className="p-5 rounded-2xl border border-slate-100 bg-slate-50 hover:bg-slate-100/50 transition-colors">
-                          <h5 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-slate-900 mb-3">
-                            <svg className="w-4 h-4 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01" />
-                            </svg>
-                            Infrastructure Needed
-                          </h5>
-                          <p className="text-slate-600 leading-relaxed">
-                            {currentContent.leap.infrastructure}
-                          </p>
-                        </div>
-
-                        {/* Culture Card */}
-                        <div className="p-5 rounded-2xl border border-slate-100 bg-slate-50 hover:bg-slate-100/50 transition-colors">
-                          <h5 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-slate-900 mb-3">
-                            <svg className="w-4 h-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                              <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
-                            </svg>
-                            Culture & Skillsets
-                          </h5>
-                          <p className="text-slate-600 leading-relaxed">
-                            {currentContent.leap.culture}
-                          </p>
-                        </div>
+                      {/* Culture Card */}
+                      <div className="p-5 rounded-2xl border border-slate-100 bg-slate-50 hover:bg-slate-100/50 transition-colors">
+                        <h5 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-slate-900 mb-3">
+                          <svg className="w-4 h-4 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                          </svg>
+                          Cultural Shift Required
+                        </h5>
+                        <p className="text-slate-600 leading-relaxed">
+                          {currentContent.leap.culture}
+                        </p>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
-            </section>
-          )}
-
-          {/* AI Governance & Risk Assessment Audit */}
-          <ReadinessAuditSection />
-
-          {/* Enterprise Data Leap Calculator */}
-          <section className="bg-white border border-slate-200 rounded-3xl p-8 md:p-12 shadow-sm">
-            <div className="max-w-3xl mb-8">
-              <h2 className="text-2xl font-bold text-slate-900">3. Enterprise Data Leap ROI Calculator</h2>
-              <p className="text-slate-600 mt-2">
-                Quantify the annual cost of manual spreadsheet work and calculate your prospective savings by transitioning toward agentic automation.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-              <div className="space-y-6">
-                <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">
-                    Current Analytics Stage: Stage {calcStageId}
-                  </label>
-                  <input
-                    type="range"
-                    min="1"
-                    max="5"
-                    value={calcStageId}
-                    onChange={(e) => setCalcStageId(Number(e.target.value))}
-                    className="w-full accent-indigo-600 cursor-pointer"
-                  />
-                  <p className="text-xs text-slate-500 mt-1">
-                    {STAGES.find((s) => s.id === calcStageId)?.name}
-                  </p>
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">
-                    Team Size (FTEs handling reporting): {calcTeamSize}
-                  </label>
-                  <input
-                    type="range"
-                    min="1"
-                    max="100"
-                    value={calcTeamSize}
-                    onChange={(e) => setCalcTeamSize(Number(e.target.value))}
-                    className="w-full accent-indigo-600 cursor-pointer"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-sm font-semibold text-slate-700 mb-2">
-                    Manual Hours per Person/Week spent on spreadsheets: {calcManualHours} hrs
-                  </label>
-                  <input
-                    type="range"
-                    min="1"
-                    max="40"
-                    value={calcManualHours}
-                    onChange={(e) => setCalcManualHours(Number(e.target.value))}
-                    className="w-full accent-indigo-600 cursor-pointer"
-                  />
-                </div>
-              </div>
-
-              <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 space-y-4">
-                <h4 className="font-bold text-slate-900 border-b border-slate-200 pb-3">Financial Impact Analysis</h4>
-                
-                <div className="flex justify-between items-center text-sm">
-                  <span className="text-slate-600">Annual Manual Hours Spent:</span>
-                  <span className="font-bold text-slate-900">{totalAnnualManualHours.toLocaleString()} hrs</span>
-                </div>
-
-                <div className="flex justify-between items-center text-sm">
-                  <span className="text-slate-600">Estimated Cost of Manual Work (@ $50/hr):</span>
-                  <span className="font-bold text-red-600">${wastedAnnualCost.toLocaleString()}</span>
-                </div>
-
-                <div className="flex justify-between items-center text-sm pt-2 border-t border-slate-200">
-                  <span className="text-slate-600">Agentic Automation Target (90% Efficiency):</span>
-                  <span className="font-extrabold text-emerald-600">${(wastedAnnualCost * 0.9).toLocaleString()}/yr</span>
-                </div>
-
-                <div className={`mt-4 p-4 rounded-xl border ${currentLeapInfo.color}`}>
-                  <p className="text-xs font-bold uppercase tracking-wider mb-1">Required Next Infrastructure Leap:</p>
-                  <p className="font-bold text-sm">{currentLeapInfo.title}</p>
-                  <p className="text-xs mt-1 opacity-90">{currentLeapInfo.description}</p>
                 </div>
               </div>
             </div>
           </section>
+        )}
 
-          {/* Executive Audit Request Form */}
-          <section className="bg-slate-900 text-white rounded-3xl p-8 md:p-12 shadow-xl">
-            <div className="max-w-2xl mx-auto text-center space-y-4 mb-8">
-              <h2 className="text-3xl font-extrabold tracking-tight">Request an AI & Data Governance Audit</h2>
-              <p className="text-slate-300">
-                Partner with our enterprise architecture SMEs to evaluate your current data pipelines, risk parameters, and agentic readiness.
-              </p>
-            </div>
+        {/* 3. Values & Ethical Risk Predictor (Circuit Breaker) */}
+        <section>
+          <RiskPredictorSection 
+            currentStage={activeStageId} 
+            onConsultSme={scrollToConsultation} 
+          />
+        </section>
 
-            <form onSubmit={handleFormSubmit} className="max-w-xl mx-auto space-y-4">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {/* 4. Readiness & Organizational Audit */}
+        <section>
+          <ReadinessAuditSection />
+        </section>
+
+        {/* 5. Executive SME Consultation Form */}
+        <section id="consultation-form" className="bg-slate-900 text-white rounded-3xl p-8 md:p-12 shadow-xl">
+          <div className="max-w-2xl mx-auto text-center">
+            <span className="text-indigo-400 text-xs font-bold uppercase tracking-widest">SME Gatekeeper Access</span>
+            <h3 className="text-3xl font-extrabold text-white mt-2 mb-4">Request a Strategic Data & Ethics Audit</h3>
+            <p className="text-slate-400 text-sm leading-relaxed mb-8">
+              Speak with a Data Maturity Consultant before committing capital to next-stage AI expansion. We validate technical readiness, protect brand equity, and prevent negative-ROI rollouts.
+            </p>
+            <form onSubmit={handleFormSubmit} className="space-y-4 text-left">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <input
                   type="text"
                   name="name"
@@ -672,7 +539,7 @@ export default function Index() {
                   required
                   value={auditForm.name}
                   onChange={handleFormChange}
-                  className="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full bg-slate-800 border border-slate-700 text-white text-sm rounded-xl p-3 focus:outline-none focus:border-indigo-500"
                 />
                 <input
                   type="email"
@@ -681,7 +548,7 @@ export default function Index() {
                   required
                   value={auditForm.email}
                   onChange={handleFormChange}
-                  className="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full bg-slate-800 border border-slate-700 text-white text-sm rounded-xl p-3 focus:outline-none focus:border-indigo-500"
                 />
               </div>
               <input
@@ -691,76 +558,26 @@ export default function Index() {
                 required
                 value={auditForm.company}
                 onChange={handleFormChange}
-                className="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full bg-slate-800 border border-slate-700 text-white text-sm rounded-xl p-3 focus:outline-none focus:border-indigo-500"
               />
               <textarea
                 name="message"
+                placeholder="Briefly describe your current stage & objectives..."
                 rows={3}
-                placeholder="Describe your primary data/AI challenge..."
                 value={auditForm.message}
                 onChange={handleFormChange}
-                className="w-full px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full bg-slate-800 border border-slate-700 text-white text-sm rounded-xl p-3 focus:outline-none focus:border-indigo-500"
               ></textarea>
               <button
                 type="submit"
-                className="w-full py-3.5 px-6 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold transition-colors shadow-lg shadow-indigo-600/30"
+                className="w-full py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white font-bold rounded-xl transition-colors shadow-lg shadow-indigo-600/30"
               >
-                Submit Consultation Request
+                Schedule Executive Consultation
               </button>
             </form>
-          </section>
-        </main>
-      </div>
-
-      {/* Printable Report Modal */}
-      {isReportModalOpen && (
-        <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto p-8 shadow-2xl relative">
-            <button
-              onClick={() => setIsReportModalOpen(false)}
-              className="absolute top-4 right-4 text-slate-400 hover:text-slate-600 print:hidden"
-            >
-              <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
-            </button>
-
-            <div className="space-y-6">
-              <div className="border-b border-slate-200 pb-4">
-                <h3 className="text-2xl font-bold text-slate-900">Data & AI Maturity Executive Summary</h3>
-                <p className="text-xs text-slate-500 mt-1">Generated by DataScale Strategy Simulator</p>
-              </div>
-
-              <div className="space-y-3 text-sm text-slate-700">
-                <p><strong>Selected Track:</strong> {activeTrack?.title}</p>
-                <p><strong>Current Selected Stage:</strong> Stage {activeStageId} ({currentStageInfo?.name})</p>
-                <p><strong>Estimated Annual Manual Work Cost:</strong> ${wastedAnnualCost.toLocaleString()}</p>
-                <p><strong>Potential Agentic Savings:</strong> ${(wastedAnnualCost * 0.9).toLocaleString()}/yr</p>
-              </div>
-
-              <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 text-xs space-y-2">
-                <p className="font-bold text-slate-900">Recommended Next Step:</p>
-                <p className="text-slate-600">{currentContent?.leap.infrastructure}</p>
-              </div>
-
-              <div className="flex justify-between items-center pt-4 border-t border-slate-200 print:hidden">
-                <button
-                  onClick={() => window.print()}
-                  className="px-4 py-2 bg-indigo-600 text-white rounded-lg text-sm font-bold hover:bg-indigo-500"
-                >
-                  Print / Save PDF
-                </button>
-                <button
-                  onClick={() => setIsReportModalOpen(false)}
-                  className="px-4 py-2 bg-slate-100 text-slate-700 rounded-lg text-sm font-medium hover:bg-slate-200"
-                >
-                  Close
-                </button>
-              </div>
-            </div>
           </div>
-        </div>
-      )}
-    </>
+        </section>
+      </main>
+    </div>
   );
 }
